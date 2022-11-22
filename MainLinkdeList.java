@@ -33,6 +33,7 @@ public class MainLinkdeList {
                 store = store.next;
                 continue;
             }
+            itm.storeNumber = storeNumber;
             storeLinkedList.addItem(itm); // add the item
             break;
         }
