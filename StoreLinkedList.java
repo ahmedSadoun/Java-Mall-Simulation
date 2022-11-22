@@ -91,4 +91,18 @@ public class StoreLinkedList {
             }
         }
     }
+
+    // in order to use it from outside the function
+    public ItemNode searchForItemNode(String name, String id) {
+        ItemNode itm = head;
+        while (true) {
+
+            if (itm == null) {
+                return null;
+            }
+            if (itm.ID == id && itm.name == name) {
+                return itm;
+            }
+        }
+    }
 }
