@@ -1,4 +1,6 @@
-
+// comments to be removed.
+// this class is supposed to be the meta data of the itmNode class 
+// meta data is known as data about data.
 public class StoreLinkedList {
     int size;
     ItemNode head;// once it is initialized it will never change
@@ -14,7 +16,7 @@ public class StoreLinkedList {
         } else if (searchResulItem == null) {
             // search for the item if existed then update its quantity.
             tail.next = itm;
-            tail = itm;
+            tail = itm;// swap
             return true;
         } else if (searchResulItem.ID == itm.ID) {
             // then update the item quantity
@@ -23,11 +25,11 @@ public class StoreLinkedList {
             return true;
         } else if (searchResulItem.next.ID == itm.ID) {
 
-            searchResulItem.next.quantity = itm.quantity;
+            searchResulItem.next.quantity += itm.quantity;
 
             return true;
         }
-
+        // is not a potential option مش محتمل
         return false;
     }
 
@@ -39,7 +41,7 @@ public class StoreLinkedList {
         ItemNode itm = searchForItemNode(id);
 
         if (searchForItemNode(id) == null) {
-            return false;
+            return false; // the object your seeking for is not available.
         } else {
             delete(itm);
         }
@@ -59,14 +61,19 @@ public class StoreLinkedList {
          * in the first case we will just put the head to null
          * in the second case we will make the new head is the current head's next
          */
+
         if (itm.ID == head.ID) {
             if (head.next != null) {
                 head = head.next;
             } else {
                 head = null;
             }
-        } else if (itm.next.next == null) { // if the next of the next of the current node is null then the desired node
-                                            // is a tail
+        }
+        /*
+         * this how to delete a tail from a linked list.
+         */
+        else if (itm.next.next == null) { // if the next of the next of the current node is null then the desired node
+                                          // is a tail
             itm.next = null;
         } else {
             itm.next = itm.next.next; // garbage collection will do its job

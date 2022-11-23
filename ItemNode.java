@@ -1,7 +1,3 @@
-import java.lang.reflect.Constructor;
-
-import javax.naming.directory.InitialDirContext;
-
 public class ItemNode {
     String name;
     String ID;
