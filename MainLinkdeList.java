@@ -51,11 +51,20 @@ public class MainLinkdeList {
                 return totalPrice;
             }
             totalPrice += cartHeadNode.price * cartHeadNode.quantity; // accumulate the item price on the totalPrice
-            cartHeadNode = cartHeadNode.next; // get the next of the current itmNode
-            if (cartHeadNode.next == null) { // if the next is null, then it is a tail, get its value and break
-                totalPrice += cartHeadNode.next.price * cartHeadNode.next.quantity;
+            if (cartHeadNode.next != null) {
+
+                cartHeadNode = cartHeadNode.next; // get the next of the current itmNode
+                if (cartHeadNode.next == null) { // if the next is null, then it is a tail, get its value and break
+                    totalPrice += cartHeadNode.price * cartHeadNode.quantity;
+                    return totalPrice;
+                }
+            } else {
                 return totalPrice;
             }
         }
+    }
+
+    public void setCart(ShoppingCartList cart) {
+        this.cart = cart;
     }
 }
